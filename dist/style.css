@@ -1,0 +1,10 @@
+.app{margin:0 auto;height:1024px}.chat-controls{display:flex}.chat-fields{width:80%}
+.header{height:50px;width:100%;display:flex;align-items:center}.header a{width:100px;display:block;text-decoration:none;margin-left:20px;font-weight:bold;color:#000;padding:20px}.header a:hover{background-color:#cec7c7}
+.chat-wrapper{width:200px}nav a{text-decoration:none;color:#000}
+.chat-wrapper{width:200px}nav a{text-decoration:none;color:#000}
+.form-item{display:flex;flex-direction:row}.form-wrapper{width:650px}
+.messages{display:flex;flex-direction:column;background-color:#e2e2e2;height:80%;width:95%;padding:20px;overflow-y:auto}
+.form-item{display:flex;flex-direction:row}.sendform-wrapper{width:100%}
+.form-item{display:flex;flex-direction:row}.form-wrapper{width:450px}
+.userprofile{margin:20px 0 0 9px}.userprofile-fieldcontainer{display:block;margin:20px 0 20px 0}
+.addchat{margin:20px 0 0 9px}.addchat-fieldcontainer{display:block;margin:20px 0 20px 0}
