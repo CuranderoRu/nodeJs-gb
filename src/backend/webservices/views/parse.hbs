@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parse service</title>
+</head>
+
+<body>
+    <form method="POST" action="./lesson4">
+        <label for="selector">
+            Выбор сайта
+            <select name="newsSite" id="selector" /></label>
+        {{#select selected}}
+        <option value="choose">Выберите сайт</option>
+        <option value="fishki">fishki</option>
+        <option value="yandex">yandex</option>
+        <option value="ria">РИА</option>
+        {{/select}}
+        </select>
+        </label>
+        <label for="newsCount">
+            Количество новостей
+            <select name="newsCount" id="newsCount" />
+        {{#select selectedCount}}
+        <option value="All">Все</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        {{/select}}
+        </select>
+        </label>
+        <br>
+        <button type="submit">Показать</button>
+    </form>
+    {{#if error }}
+    <h1>Ошибка:</h1>
+    <div>{{ error }}</div>
+    {{else}}
+    <h1>Новости:</h1>
+    {{#each textArray}}
+    <div>{{this}}</div>
+    {{/each}}
+    {{/if}}
+</body>
+
+</html>
