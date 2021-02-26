@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parse service</title>
+</head>
+
+<body>
+    <form method="POST" action="/web/lesson5">
+        <label>
+            Автор
+            <input type="text" name="author" placeholder="Введите автора" value="{{author}}"/>
+        </label><br>
+        <label>
+            Заголовок
+            <input type="text" name="title" placeholder="Заголовок статьи"/>
+        </label><br>
+        <textarea rows="20" cols="100" name="text" placeholder="Текст статьи"></textarea>
+        <br>
+        <label for="importance">
+            Важность статьи
+            <select name="importance" id="importance" />
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        </select>
+        </label>
+        <br>
+        <button type="submit">Создать</button>
+    </form>
+    {{#if error }}
+    <h1>Ошибка:</h1>
+    <div>{{ error }}</div>
+    {{/if}}
+    <h1>Статьи:</h1>
+    <hr>
+    {{#each list}}
+    <form method="POST" action="lesson5/{{id}}">
+        <h2>{{title}}</h2>
+        <div><b>Автор:</b> {{author}} <b>Создана:</b> {{createdAt}}</div>
+        <br>
+        <div>{{text}}</div>
+        <br>
+        <input type="hidden" name="delete" placeholder="Введите автора"/>
+        <button type="submit">Удалить</button>
+    </form>
+    <hr>
+    {{/each}}
+    
+</body>
+
+</html>
