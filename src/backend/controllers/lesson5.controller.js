@@ -1,6 +1,5 @@
 const httpStatus = require('http-status');
-const apiController = require('../../api/controllers/article.controller');
-const Article = require('../../api/models/article.model');
+const Article = require('../models/article.model');
 
 const renderForm = async(req, res, author, extError = null) => {
     let list = [];

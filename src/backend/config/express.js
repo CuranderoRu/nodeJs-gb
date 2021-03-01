@@ -7,8 +7,7 @@ const cookieParser = require('cookie-parser');
 const templating = require('consolidate');
 const handlebars = require('handlebars')
 const helmet = require('helmet');
-const routesV1 = require('../api/routes/v1');
-const routesWeb = require('../webservices/routes');
+const router = require('../routes');
 
 /**
  * Express instance
@@ -41,14 +40,11 @@ handlebars.registerHelper('select', function(selected, options) {
 templating.requires.handlebars = handlebars;
 app.engine('hbs', templating.handlebars);
 app.set('view engine', 'hbs');
-app.set('views', path.resolve(__dirname, '..', 'webservices', 'views'));
+app.set('views', path.resolve(__dirname, '..', 'views'));
 
 app.use(express.static('./dist'));
 
-// mount api v1 routes
-app.use('/api/v1', routesV1);
-
-// mount webservices
-app.use('/web', routesWeb);
+// mount routes
+app.use(router);
 
 module.exports = app;
