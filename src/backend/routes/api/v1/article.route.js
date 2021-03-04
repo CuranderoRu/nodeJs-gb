@@ -1,12 +1,12 @@
 const express = require('express');
-const controller = require('../../../controllers/article.controller');
+const controllers = require('../../../controllers');
 
 const router = express.Router();
 
 /**
  * Load article when API with articleId route parameter is hit
  */
-router.param('articleId', controller.load);
+router.param('articleId', controllers.article.load);
 
 
 router
@@ -24,7 +24,7 @@ router
      *
      * @apiSuccess {Object[]} articles List of articles.
      */
-    .get(controller.list)
+    .get(controllers.article.list)
     /**
      * @api {post} v1/articles               Create Article
      * @apiDescription Create a new article
@@ -45,7 +45,7 @@ router
      * @apiSuccess (Created 201) {Date}    createdAt  Timestamp
      *
      */
-    .post(controller.create);
+    .post(controllers.article.create);
 
 
 router
@@ -67,7 +67,7 @@ router
      * @apiError (Not Found 404)    NotFound     Article does not exist
      *
      */
-    .get(controller.get)
+    .get(controllers.article.get)
     /**
      * @api {patch} v1/articles/:articleId   Update Article
      * @apiDescription Update some fields of a article document
@@ -89,7 +89,7 @@ router
      *
      * @apiError (Not Found 404)    NotFound     Article does not exist
      */
-    .patch(controller.update)
+    .patch(controllers.article.update)
     /**
      * @api {delete} v1/articles/:articleId  Delete Article
      * @apiDescription Delete an article
@@ -102,7 +102,7 @@ router
      *
      * @apiError (Not Found 404)    NotFound      Article does not exist
      */
-    .delete(controller.remove);
+    .delete(controllers.article.remove);
 
 
 module.exports = router;

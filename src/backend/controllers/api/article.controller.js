@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const Article = require('../models/article.model');
+const Article = require('../../models/article.model');
 
 /**
  * Load article and append to req.

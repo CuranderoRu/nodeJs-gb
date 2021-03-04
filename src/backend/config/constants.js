@@ -10,6 +10,8 @@ require('dotenv-safe').config({
 module.exports = {
     env: process.env.NODE_ENV,
     port: process.env.PORT,
+    jwtSecret: process.env.JWT_SECRET,
+    jwtExpirationInterval: process.env.JWT_EXPIRATION_MINUTES,
     mongo: {
         uri: process.env.MONGO_URI,
     },
@@ -18,5 +20,9 @@ module.exports = {
         YANDEX_OAUTH_TOKEN: process.env.YANDEX_OAUTH_TOKEN,
         TOKEN_EXCHANGE_PATH: 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
         YANDEX_TENANT_FOLDER: process.env.YANDEX_TENANT_FOLDER,
+    },
+    googleAPI: {
+        GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+        GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
     }
 };

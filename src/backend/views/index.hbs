@@ -8,8 +8,15 @@
         <h1>
             {{ message }}
         </h1>
-        <a href="/task/">Список задач</a><br>
-        <a href="/auth/login/">Войти</a><br>
-        <a href="/auth/signup/">Зарегистрироваться</a>
+        {{#if loggedIn }}
+            <a href="/web/lesson5/">Статьи</a><br>
+            <form method="POST" action="/web/auth/signout/">
+                <button type="submit">Выйти</button>
+            </form>    
+        {{else}}
+            <a href="/web/auth/login/">Войти</a><br>
+            <a href="/web/auth/google">Войти через Google</a><br>
+            <a href="/web/auth/signup/">Зарегистрироваться</a>
+        {{/if}}
     </body>
 </html>

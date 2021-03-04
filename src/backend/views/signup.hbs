@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register a new user</title>
+    <style type="text/css">
+        label,
+        button {
+            display: block;
+            margin: 5px 0;
+            position: relative;
+        }
+
+        input {
+            position: absolute;
+            left: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Регистрация</h1>
+    <form method="POST" action="/web/auth/signup/">
+        <label>
+            Ваше имя
+            <input type="text" name="name" required="required" placholder="Введите имя пользователя">
+        </label><br>
+        <label>
+            Ваш e-mail (логин)
+            <input type="email" name="email" required="required" placeholder="Введите e-mail">
+        </label><br>
+        <label>
+            Пароль
+            <input type="password" name="password" required="required" placeholder="Введите ваш пароль">
+        </label><br>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+</body>
+
+</html>

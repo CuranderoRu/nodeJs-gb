@@ -1,5 +1,4 @@
-const httpStatus = require('http-status');
-const Article = require('../models/article.model');
+const Article = require('../../models/article.model');
 
 const renderForm = async(req, res, author, extError = null) => {
     let list = [];
@@ -26,7 +25,6 @@ const renderForm = async(req, res, author, extError = null) => {
 }
 
 const getRequest = async(req, res, next) => {
-    console.log('req.cookies:', req.cookies);
     let author = '';
     if (!req.cookies) {
         res.cookie('author', author, {
@@ -42,7 +40,6 @@ const getRequest = async(req, res, next) => {
 exports.get = getRequest;
 
 exports.post = async(req, res, next) => {
-    console.log('post:', req.cookies, req.body);
     if (!req.cookies) { //request sent from dev tool
         getRequest(req, res, next);
         return;
