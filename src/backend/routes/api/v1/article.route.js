@@ -69,6 +69,28 @@ router
      */
     .get(controllers.article.get)
     /**
+     * @api {put} v1/articles/:articleId     Replace Article
+     * @apiDescription Replace the whole article document with a new one
+     * @apiVersion 1.0.0
+     * @apiName ReplaceArticle
+     * @apiGroup Article
+     * @apiPermission any
+     *
+     * @apiParam  {String}     author        Article's author
+     * @apiParam  {String}     title         Article's title
+     * @apiParam  {String}     text          Article's text
+     * @apiParam  {Number}     importance    Article's importance
+     *
+     * @apiSuccess {String}    id            Article's id
+     * @apiSuccess {String}    author        Article's author
+     * @apiSuccess {String}    title         Article's title
+     * @apiSuccess {String}    text          Article's text
+     * @apiSuccess {Number}    importance    Article's importance
+     *
+     * @apiError (Not Found 404)    NotFound     Article does not exist
+     */
+    .put(controllers.article.replace)
+    /**
      * @api {patch} v1/articles/:articleId   Update Article
      * @apiDescription Update some fields of a article document
      * @apiVersion 1.0.0

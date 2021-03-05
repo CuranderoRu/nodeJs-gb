@@ -41,6 +41,7 @@ app.use(session);
 // enable authentication
 app.use(passport.initialize());
 passport.use('google', strategies.google);
+passport.use('jwt', strategies.jwt);
 passport.serializeUser(function(user, done) {
     done(null, user);
 });

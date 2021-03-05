@@ -1,4 +1,5 @@
 const httpStatus = require('http-status');
+const { omit } = require('lodash');
 const Article = require('../../models/article.model');
 
 /**
@@ -30,6 +31,23 @@ exports.create = async(req, res, next) => {
         const article = new Article(req.body);
         const savedArticle = await article.save();
         res.status(httpStatus.CREATED);
+        res.json(savedArticle);
+    } catch (error) {
+        next(error);
+    }
+};
+
+/**
+ * Replace existing Article
+ * @public
+ */
+exports.replace = async(req, res, next) => {
+    try {
+        const { article } = req.locals;
+        const newArticle = new Article(req.body);
+        const newArticleObject = omit(newArticle.toObject(), '_id');
+        await article.updateOne(newArticleObject, { override: true, upsert: true });
+        const savedArticle = await Article.findById(article._id);
         res.json(savedArticle);
     } catch (error) {
         next(error);
