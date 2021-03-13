@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const controller = require('../../controllers/lesson4.controller');
+const controller = require('../../controllers/webservices/lesson4.controller');
 
 router
     .route('/')

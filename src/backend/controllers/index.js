@@ -1,17 +1,25 @@
-const main = require('./main.controller');
-//const user = require('./user.controller');
-const parse = require('./parse.controller'); //rest api parse
-const translate = require('./translate.controller'); //rest api translate
-const lesson4 = require('./lesson4.controller'); //webservice parse, translate
-const lesson5 = require('./lesson5.controller'); //webservice article
-const article = require('./article.controller'); //rest api article
-//const auth = require('./auth.controller');
+//common
+const auth = require('./auth.controller');
+const user = require('./user.controller');
+
+//webservices
+const main = require('./webservices/main.controller');
+const lesson4 = require('./webservices/lesson4.controller');
+const lesson5 = require('./webservices/lesson5.controller');
+
+//rest api
+const parse = require('./api/parse.controller');
+const translate = require('./api/translate.controller');
+const article = require('./api/article.controller');
+
 
 module.exports = {
     main,
-    parse,
-    translate,
+    user,
     lesson4,
     lesson5,
+    auth,
+    parse,
     article,
+    translate,
 }

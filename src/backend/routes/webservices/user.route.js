@@ -1,12 +1,11 @@
 const express = require('express');
-const controllers = require('../controllers')
+const controller = require('../../controllers/user.controller');
 
 const router = express.Router();
 
-// router.get('/', controllers.user.getUsers);
-// router.post('/', controllers.user.createUser);
-// router.put('/:userId/', controllers.user.updateUser);
-// router.patch('/:userId/setPassword', controllers.user.setPassword);
-// router.delete('/:userId/', controllers.user.deleteUser);
+/**
+ * Load user when API with userId route parameter is hit
+ */
+router.param('userId', controller.load);
 
 module.exports = router;

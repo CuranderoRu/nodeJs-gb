@@ -1,7 +1,7 @@
 const httpStatus = require('http-status');
 const axios = require('axios');
 const moment = require('moment');
-const { yandexTranslate } = require('../config/constants');
+const { yandexTranslate } = require('../../config/constants');
 
 const getTranslation = async(stringToTranslate, targetLanguageCode) => {
     if (typeof process.YANDEX_IAM_TOKEN === 'undefined' || moment(process.YANDEX_IAM_TOKEN_EXP).isBefore(moment().add(-3, 'h'))) {
