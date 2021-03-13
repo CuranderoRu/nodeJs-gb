@@ -60,6 +60,7 @@ app.set('views', path.resolve(__dirname, '..', 'views'));
 app.use(express.static('./dist'));
 
 // mount routes
+app.use('/', express.static('./dist'));
 app.use('/web', WSrouter);
 app.use('/api/v1', APIrouter);
 
